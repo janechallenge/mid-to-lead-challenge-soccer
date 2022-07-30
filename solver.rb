@@ -9,7 +9,7 @@ teams = []
 matchday = 1
 scoreboard = {}
 puts "Matchday #{matchday}"
-IO.foreach("sample-input.txt") do |line|
+IO.foreach(ARGV.first) do |line|
   game = Game.new(line)
 
   if teams.include?(game.teams_who_played.first)

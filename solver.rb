@@ -3,7 +3,7 @@
 require './lib/game.rb'
 
 def display_scoreboard(scoreboard)
-  sorted_board = scoreboard.sort_by{ |team, score| -score}
+  sorted_board = scoreboard.sort_by{ |team, score| [-score, team] }
   puts sorted_board.first(3).map { |team, score| "#{team}, #{score} pt#{score > 1 ? "s" : ""}" }
 end
 

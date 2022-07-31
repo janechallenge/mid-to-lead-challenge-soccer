@@ -10,9 +10,13 @@ or
 Reading input from file:
 `ruby solver.rb {filename}` (`ruby solver.rb sample-input.txt` for example).
 
+[run_solver.webm](https://user-images.githubusercontent.com/110110727/182042863-12c00fe1-a9c6-4a2d-a084-4a552c66b32a.webm)
+
 ## How to Run Tests
 
 `rake test` (or simply `rake` as test is the default task)
+
+[rake_test.webm](https://user-images.githubusercontent.com/110110727/182042824-e70b7c40-26e2-4461-92ba-d9604c53f221.webm)
 
 ## Ruby Version
 

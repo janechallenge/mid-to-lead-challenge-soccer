@@ -1,5 +1,8 @@
-require_relative 'game.rb'
+# frozen_string_literal: true
 
+require_relative 'game'
+
+# Counter is used to keep track of matchday, teams who played and scoreboard
 class Counter
   def initialize
     @day = 1
@@ -9,8 +12,9 @@ class Counter
   end
 
   def display_scoreboard
-    sorted_board = @scoreboard.sort_by{ |team, score| [-score, team] }
-    puts sorted_board.first(3).map { |team, score| "#{team}, #{score} pt#{score > 1 ? "s" : ""}" }
+    sorted_board = @scoreboard.sort_by { |team, score| [-score, team] }
+    formatted_board = sorted_board.first(3).map { |team, score| "#{team}, #{score} pt#{score > 1 ? 's' : ''}" }
+    puts formatted_board
   end
 
   def new_game_result(result)
@@ -23,11 +27,10 @@ class Counter
       @teams = []
       @day += 1
 
-      puts "\n"
-      puts "Matchday #{@day}"
+      puts "\nMatchday #{@day}"
     end
 
     @teams.push(*game.teams_who_played)
-    @scoreboard.merge!(game.score) { |team, old_score, new_score| old_score + new_score }
+    @scoreboard.merge!(game.score) { |_team, old_score, new_score| old_score + new_score }
   end
 end

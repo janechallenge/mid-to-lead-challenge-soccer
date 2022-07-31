@@ -1,20 +1,22 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require_relative 'lib/counter.rb'
+require_relative 'lib/counter'
 
 counter = Counter.new
-if ARGV.length == 0
+case ARGV.length
+when 0
   # handle data from STDIN
-  STDIN.read.split("\n").each do |line|
+  $stdin.read.split("\n").each do |line|
     counter.new_game_result(line)
   end
-elsif ARGV.length == 1
+when 1
   # handle data from file
-  IO.foreach(ARGV.first) do |line|
+  File.foreach(ARGV.first) do |line|
     counter.new_game_result(line)
   end
 else
-  puts "Too many arguments have been provided"
+  puts 'Too many arguments have been provided'
 end
 
 # if data streaming is halted, display in-progress scoreboard

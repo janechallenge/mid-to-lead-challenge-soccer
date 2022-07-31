@@ -20,7 +20,11 @@ Reading input from file:
 
 ## Ruby Version
 
-Supported Ruby version is 3.1.2
+Supported Ruby version is `3.1.2`.
+
+## Linting / Formatting
+
+`rubocop` can be used to lint / format program code.
 
 ## Design Notes
 

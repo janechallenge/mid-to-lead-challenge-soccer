@@ -40,7 +40,7 @@ elsif ARGV.length == 1
   IO.foreach(ARGV.first) do |line|
     process_line(line)
   end
-elsif ARGV.length > 1
+else
   puts "You have provided too many arguments"
 end
 

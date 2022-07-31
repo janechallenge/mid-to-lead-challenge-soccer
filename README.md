@@ -1,14 +1,5 @@
 # mid-to-lead-challenge-soccer
 
-## Ruby Version
-
-Supported Ruby version is 3.1.2
-
-## Design Notes
-
-Will use IO to read from either file or stdin.
-Defined a class per game.
-
 ## How to Run Program
 
 Reading input from piped STDIN:
@@ -19,10 +10,21 @@ or
 Reading input from file:
 `ruby solver.rb {filename}` (`ruby solver.rb sample-input.txt` for example).
 
-Or by making the script an executable:
-- `chmod +x solver.rb`
-- `./solver.rb`
-
 ## How to Run Tests
 
 `rake test` (or simply `rake` as test is the default task)
+
+## Ruby Version
+
+Supported Ruby version is 3.1.2
+
+## Design Notes
+
+When program is ran, it detects whether command-line arguments are present and should read from STDIN or specified filename.
+
+On program start, a `Counter` class is instantiated.
+`Counter` class keeps track of the matchday, teams who played in this matchday and global scoreboard.
+
+On new game result, the string is passed to a new `Game` class to parse it, define teams playing and calculate score.
+If teams haven't already played, program awaits for a new game result.
+If teams have already played, scoreboard is displayed and current matchday and teams who played in this matchday are reset.

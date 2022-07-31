@@ -1,7 +1,12 @@
 class Game
+  attr_reader :valid
+
   def initialize(result)
     regex = %r{([A-z ]+)([0-9]+),([A-z ]+)([0-9]+)}
-    @team_1, @score_1, @team_2, @score_2 = regex.match(result).captures.map(&:strip)
+    if regex.match?(result)
+      @valid = true
+      @team_1, @score_1, @team_2, @score_2 = regex.match(result).captures.map(&:strip)
+    end
   end
 
   def score
@@ -18,8 +23,5 @@ class Game
 
   def teams_who_played
     return @team_1, @team_2
-  end
-
-  def pprint
   end
 end

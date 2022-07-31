@@ -9,6 +9,7 @@ end
 
 def process_line(line)
   game = Game.new(line)
+  return unless game.valid
 
   if $teams.include?(game.teams_who_played.first)
     display_scoreboard($scoreboard)
